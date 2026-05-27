@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Lamine</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#f4f4f4;
+      color:#333;
+      line-height:1.6;
+    }
+
+    header{
+      background:#111827;
+      color:white;
+      padding:20px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    header h1{
+      font-size:28px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    .hero{
+      height:90vh;
+      background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200') center/cover;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content h2{
+      font-size:50px;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      background:#38bdf8;
+      color:white;
+      padding:12px 25px;
+      border-radius:5px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#0284c7;
+    }
+
+    section{
+      padding:70px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+      font-size:35px;
+      color:#111827;
+    }
+
+    .about{
+      display:flex;
+      gap:40px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .about img{
+      width:300px;
+      border-radius:15px;
+    }
+
+    .about-text{
+      flex:1;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:20px;
+    }
+
+    .card-content h3{
+      margin-bottom:10px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      justify-content:center;
+    }
+
+    .skill{
+      background:#111827;
+      color:white;
+      padding:12px 20px;
+      border-radius:30px;
+    }
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+    footer{
+      background:#111827;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:40px;
+    }
+
+    @media(max-width:768px){
+
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        margin-top:15px;
+      }
+
+      .hero-content h2{
+        font-size:35px;
+      }
+
+      .about{
+        flex-direction:column;
+        text-align:center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Mon Portfolio</h1>
+
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#projects">Projets</a>
+      <a href="#skills">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Bonjour, je suis Mohamadou Lamine Watt</h2>
+      <p>Développeur Web & Technicien réseaux</p>
+      <a href="#projects" class="btn">Voir mes projets</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">À propos</h2>
+
+    <div class="about">
+      <img src="..\157963.jpg" alt="Photo profil">
+<!--  "C:\Users\dell\Desktop\157963.jpg"-->
+      <div class="about-text">
+        <p>
+          Passionné par la cybersecurite, le développement web et les technologies modernes,
+          je crée des applications et des sites web modernes, responsives
+          et performants.je peux intaller des equipements réseau, les configurer et assurer la securite du reseau.
+          je peux aussi travailler en tant qu'Analyste en cybersecurite.        </p>
+
+        <br>
+
+        <p>
+          Pour le developpement web travaille principalement avec HTML, CSS, JavaScript, C++, flutter et Java.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Mes Projets</h2>
+
+    <div class="projects">
+       <div class="card">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800" alt="Projet 3">
+
+            <div class="card-content">
+              <h3>Projet Java</h3>
+              <p>Creation d´une application de gestion de bibliothèque universitaire.</p>
+            </div>
+          </div>
+
+        </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800" alt="Projet 1">
+
+        <div class="card-content">
+          <h3>Application Qt</h3>
+          <p>Application de gestion immobilière avec C++ et table de hachage.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800" alt="Projet 2">
+
+        <div class="card-content">
+          <h3>Site Web</h3>
+          <p>Création d´un site portfolio avec HTML et CSS.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800" alt="Projet 3">
+
+        <div class="card-content">
+          <h3>Projet Réseau</h3>
+          <p>Configuration DNS, DHCP et services TCP/IP sous Linux.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2 class="section-title">Compétences</h2>
+
+    <div class="skills">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Flutter&dart</div>
+       <div class="skill">C</div>
+      <div class="skill">C++</div>
+      <div class="skill">Java</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Administration réseaux et systemes</div>
+      <div class="skill">Linux</div>
+    </div>
+  </section>
+
+  <section id="cv">
+
+    <h2>Mon CV</h2>
+
+    <p>
+        Vous pouvez consulter ou télécharger mon CV en PDF.
+    </p>
+
+    <a href="cv.pdf" target="_blank" class="btn">
+        Télécharger mon CV
+    </a>
+
+</section>
+
+  <!--github-->
+  <section class="github">
+    <h2 class="section-title">GitHub</h2>
+    <p>
+      <a href="https://github.com/watt2025" target="_blank">Voir mon profil GitHub</a>
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+
+    <p>Email : laminewtt@gmail.com</p>
+    <p>Téléphone : +221 78 521 90 07</p>
+
+    <a href="#" class="btn">Me contacter</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 - Portfolio de Lamine</p>
+  </footer>
+
+</body>
+</html>
