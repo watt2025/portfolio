@@ -3,201 +3,401 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio - Lamine</title>
+  <meta name="description" content="Portfolio de Mohamadou Lamine Watt - Développeur Web et Technicien réseaux">
+  <meta name="author" content="Mohamadou Lamine Watt">
+  <title>Lamine Watt | Développeur Web & Réseaux</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, Helvetica, sans-serif;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      background:#f4f4f4;
-      color:#333;
-      line-height:1.6;
+    body {
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
-    header{
-      background:#111827;
-      color:white;
-      padding:20px 50px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap');
+
+    /* Header moderne avec glassmorphisme */
+    header {
+      background: rgba(17, 24, 39, 0.95);
+      backdrop-filter: blur(10px);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s;
     }
 
-    header h1{
-      font-size:28px;
+    header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-      transition:0.3s;
+    nav {
+      display: flex;
+      gap: 1.8rem;
+      flex-wrap: wrap;
     }
 
-    nav a:hover{
-      color:#38bdf8;
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      position: relative;
     }
 
-    .hero{
-      height:90vh;
-      background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-      url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200') center/cover;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      color:white;
-      padding:20px;
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #38bdf8;
+      transition: 0.3s;
     }
 
-    .hero-content h2{
-      font-size:50px;
-      margin-bottom:20px;
+    nav a:hover::after {
+      width: 100%;
     }
 
-    .hero-content p{
-      font-size:20px;
-      margin-bottom:30px;
+    nav a:hover {
+      color: #38bdf8;
     }
 
-    .btn{
-      display:inline-block;
-      background:#38bdf8;
-      color:white;
-      padding:12px 25px;
-      border-radius:5px;
-      text-decoration:none;
-      transition:0.3s;
+    /* Hero Section améliorée */
+    .hero {
+      min-height: 85vh;
+      background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(15,23,42,0.85)), 
+      url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200') center/cover fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
     }
 
-    .btn:hover{
-      background:#0284c7;
+    .hero-content h2 {
+      font-size: 3.2rem;
+      margin-bottom: 1rem;
+      animation: fadeInUp 1s ease;
     }
 
-    section{
-      padding:70px 10%;
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 1s ease 0.2s both;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
-      font-size:35px;
-      color:#111827;
+    .hero-content .btn {
+      animation: fadeInUp 1s ease 0.4s both;
     }
 
-    .about{
-      display:flex;
-      gap:40px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .about img{
-      width:300px;
-      border-radius:15px;
-    }
-
-    .about-text{
-      flex:1;
-    }
-
-    .projects{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-      gap:25px;
-    }
-
-    .card{
-      background:white;
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 5px 15px rgba(0,0,0,0.1);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-    }
-
-    .card img{
-      width:100%;
-      height:200px;
-      object-fit:cover;
-    }
-
-    .card-content{
-      padding:20px;
-    }
-
-    .card-content h3{
-      margin-bottom:10px;
-    }
-
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:15px;
-      justify-content:center;
-    }
-
-    .skill{
-      background:#111827;
-      color:white;
-      padding:12px 20px;
-      border-radius:30px;
-    }
-
-    .contact{
-      text-align:center;
-    }
-
-    .contact p{
-      margin-bottom:20px;
-      font-size:18px;
-    }
-
-    footer{
-      background:#111827;
-      color:white;
-      text-align:center;
-      padding:20px;
-      margin-top:40px;
-    }
-
-    @media(max-width:768px){
-
-      header{
-        flex-direction:column;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-
-      nav{
-        margin-top:15px;
-      }
-
-      .hero-content h2{
-        font-size:35px;
-      }
-
-      .about{
-        flex-direction:column;
-        text-align:center;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
+    /* Boutons */
+    .btn {
+      display: inline-block;
+      background: linear-gradient(95deg, #38bdf8, #3b82f6);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 14px rgba(56,189,248,0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 20px rgba(56,189,248,0.3);
+      background: linear-gradient(95deg, #0ea5e9, #2563eb);
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+      color: #0f172a;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: #38bdf8;
+      margin: 0.8rem auto 0;
+      border-radius: 5px;
+    }
+
+    /* About */
+    .about {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .about img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+      border: 4px solid white;
+      transition: transform 0.3s;
+    }
+
+    .about img:hover {
+      transform: scale(1.02);
+    }
+
+    .about-text {
+      flex: 2;
+      min-width: 260px;
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+    }
+
+    /* Projets grid */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 12px 20px -10px rgba(0,0,0,0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 30px -12px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-content h3 {
+      margin-bottom: 0.6rem;
+      color: #0f172a;
+    }
+
+    /* Compétences améliorées */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      color: white;
+      padding: 0.7rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 500;
+      transition: all 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      font-size: 0.9rem;
+    }
+
+    .skill:hover {
+      transform: scale(1.03);
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* CV + Github */
+    .cv-github {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      background: #eef2ff;
+      border-radius: 48px;
+      padding: 2rem;
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .cv-card, .github-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 28px;
+      min-width: 220px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+    }
+
+    /* Contact form */
+    .contact-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 24px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56,189,248,0.2);
+    }
+
+    button.btn {
+      width: 100%;
+      font-size: 1.1rem;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+    }
+
+    /* Message de succès/erreur */
+    .form-message {
+      margin-top: 1rem;
+      padding: 0.8rem;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 500;
+      display: none;
+    }
+
+    .form-message.success {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+      display: block;
+    }
+
+    .form-message.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+      display: block;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+      }
+      nav {
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .hero-content h2 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      section {
+        padding: 3rem 1.5rem;
+      }
+      .cv-github {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
   <header>
-    <h1>Mon Portfolio</h1>
-
+    <h1>⚡ Lamine Watt</h1>
     <nav>
       <a href="#about">À propos</a>
       <a href="#projects">Projets</a>
@@ -206,138 +406,208 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
-      <h2>Bonjour, je suis Mohamadou Lamine Watt</h2>
-      <p>Développeur Web & Technicien réseaux</p>
-      <a href="#projects" class="btn">Voir mes projets</a>
+      <h2>Bonjour, je suis <span style="color:#38bdf8">Mohamadou Lamine Watt</span></h2>
+      <p>Développeur Web Fullstack & Technicien réseaux / Cybersécurité</p>
+      <a href="#projects" class="btn">✨ Découvrir mes projets</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <h2 class="section-title">À propos</h2>
-
     <div class="about">
-      <img src="https://raw.githubusercontent.com/watt2025/portfolio/7ff3affb12fd6f2765002b72f43cd72cff3bc038/157963.jpg" alt="Photo profil">
-<!--  "C:\Users\dell\Desktop\157963.jpg"-->
+      <img src="https://raw.githubusercontent.com/watt2025/portfolio/7ff3affb12fd6f2765002b72f43cd72cff3bc038/157963.jpg" alt="Photo de profil Lamine">
       <div class="about-text">
-        <p>
-          Passionné par la cybersecurite, le développement web et les technologies modernes,
-          je crée des applications et des sites web modernes, responsives
-          et performants.je peux intaller des equipements réseau, les configurer et assurer la securite du reseau.
-          je peux aussi travailler en tant qu'Analyste en cybersecurite.        </p>
-
+        <p>🔐 Passionné par la <strong>cybersécurité</strong>, le <strong>développement web</strong> et les infrastructures réseaux, 
+        je conçois des applications modernes, responsives et sécurisées. Je maîtrise l'installation et la configuration d'équipements réseau, 
+        ainsi que l'administration systèmes sous Linux.</p>
         <br>
-
-        <p>
-          Pour le developpement web travaille principalement avec HTML, CSS, JavaScript, C++, flutter et Java.
-        </p>
+        <p>💻 En tant qu'<strong>Analyste cybersécurité</strong>, je veille à la protection des actifs numériques. 
+        Côté développement, j'utilise <strong>HTML, CSS, JavaScript, C++, Flutter, Java</strong> et les bases de données SQL.</p>
+        <br>
+        <p>🎓 Je suis constamment en veille technologique pour offrir des solutions innovantes et robustes.</p>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
-    <h2 class="section-title">Mes Projets</h2>
-
+    <h2 class="section-title">Mes projets récents</h2>
     <div class="projects">
-       <div class="card">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800" alt="Projet 3">
-
-            <div class="card-content">
-              <h3>Projet Java</h3>
-              <p>Creation d´une application de gestion de bibliothèque universitaire.</p>
-            </div>
-          </div>
-
-        </div>
-
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800" alt="Projet 1">
-
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800" alt="Projet Java">
         <div class="card-content">
-          <h3>Application Qt</h3>
-          <p>Application de gestion immobilière avec C++ et table de hachage.</p>
+          <h3>📚 Bibliothèque Universitaire (Java)</h3>
+          <p>Application desktop de gestion des livres, emprunts et adhérents avec interface JavaFX et base de données MySQL.</p>
         </div>
       </div>
-
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800" alt="Projet 2">
-
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800" alt="Application Qt">
         <div class="card-content">
-          <h3>Site Web</h3>
-          <p>Création d´un site portfolio avec HTML et CSS.</p>
+          <h3>🏢 Gestion immobilière (C++ / Qt)</h3>
+          <p>Optimisation des transactions immobilières avec structures de données (tables de hachage) et interface moderne Qt.</p>
         </div>
       </div>
-
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800" alt="Projet 3">
-
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=800" alt="Site Web">
         <div class="card-content">
-          <h3>Projet Réseau</h3>
-          <p>Configuration DNS, DHCP et services TCP/IP sous Linux.</p>
+          <h3>🌐 Portfolio Dynamique</h3>
+          <p>Site vitrine responsive avec HTML, CSS, JavaScript et animations modernes (ce site portfolio).</p>
         </div>
       </div>
-
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800" alt="Réseau">
+        <div class="card-content">
+          <h3>🛡️ Infrastructure Réseau Sécurisée</h3>
+          <p>Configuration de serveurs DNS, DHCP, pare-feu iptables sous Linux, supervision et audit de sécurité.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills">
-    <h2 class="section-title">Compétences</h2>
-
+    <h2 class="section-title">Compétences techniques</h2>
     <div class="skills">
-      <div class="skill">HTML</div>
-      <div class="skill">CSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">Flutter&dart</div>
-       <div class="skill">C</div>
-      <div class="skill">C++</div>
-      <div class="skill">Java</div>
-      <div class="skill">SQL</div>
-      <div class="skill">Administration réseaux et systemes</div>
-      <div class="skill">Linux</div>
+      <span class="skill">HTML5 / CSS3</span>
+      <span class="skill">JavaScript (ES6+)</span>
+      <span class="skill">Flutter & Dart</span>
+      <span class="skill">C / C++</span>
+      <span class="skill">Java (JavaFX)</span>
+      <span class="skill">SQL (MySQL, SQLite)</span>
+      <span class="skill">Administration Linux</span>
+      <span class="skill">Réseaux (TCP/IP, DNS, DHCP)</span>
+      <span class="skill">Cybersécurité / Nmap, Wireshark</span>
+      <span class="skill">Git & GitHub</span>
     </div>
   </section>
 
-  <section id="cv">
-
-    <h2>Mon CV</h2>
-
-    <p>
-        Vous pouvez consulter ou télécharger mon CV en PDF.
-    </p>
-
-    <a href="cv.pdf" target="_blank" class="btn">
-        Télécharger mon CV
-    </a>
-
-</section>
-
-  <!--github-->
-  <section class="github">
-    <h2 class="section-title">GitHub</h2>
-    <p>
-      <a href="https://github.com/watt2025" target="_blank">Voir mon profil GitHub</a>
-    </p>
+  <section>
+    <h2 class="section-title">Ressources</h2>
+    <div class="cv-github">
+      <div class="cv-card">
+        <h3>📄 Mon CV</h3>
+        <p>Consultez ou téléchargez mon CV au format PDF.</p>
+        <a href="cv.pdf" target="_blank" class="btn" style="margin-top:1rem; display:inline-block;">📥 Télécharger CV</a>
+      </div>
+      <div class="github-card">
+        <h3>🐙 GitHub</h3>
+        <p>Découvrez mes projets open-source et contributions.</p>
+        <a href="https://github.com/watt2025" target="_blank" class="btn" style="margin-top:1rem; display:inline-block;">Voir GitHub →</a>
+      </div>
+    </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="contact">
-    <h2 class="section-title">Contact</h2>
-
-    <p>Email : laminewtt@gmail.com</p>
-    <p>Téléphone : +221 78 521 90 07</p>
-
-    <a href="#" class="btn">Me contacter</a>
+    <h2 class="section-title">Contactez-moi</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <p>📧 <strong>laminewtt@gmail.com</strong></p>
+        <p>📞 <strong>+221 78 521 90 07</strong></p>
+        <p>📍 Dakar, Sénégal</p>
+      </div>
+      
+      <!-- FORMULAIRE FORMSPREE -->
+      <!-- IMPORTANT: Remplacez "VOTRE_ID_FORMSPREE" par votre vrai ID -->
+      <form id="contactForm" action="https://formspree.io/f/mrevzjrn" method="POST">
+        <!-- Champ caché pour rediriger après envoi (optionnel) -->
+        <input type="hidden" name="_redirect" value="https://votre-site.com/merci.html">
+        
+        <!-- Anti-spam (optionnel mais recommandé) -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <div class="form-group">
+          <input type="text" name="name" id="name" placeholder="Votre nom complet" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" id="email" placeholder="Votre adresse email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" id="message" rows="4" placeholder="Votre message..." required></textarea>
+        </div>
+        <button type="submit" class="btn" id="submitBtn">Envoyer le message ✉️</button>
+        
+        <div id="formMessage" class="form-message"></div>
+      </form>
+    </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© 2026 - Portfolio de Lamine</p>
+    <p>© 2026 - Portfolio de Mohamadou Lamine Watt | Développeur & Technicien réseaux</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem;">✨ Conçu avec passion et responsivité ✨</p>
   </footer>
 
+  <script>
+    // Smooth scrolling pour tous les liens d'ancrage
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if(targetId === "#" || targetId === "") return;
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Gestion du formulaire avec Formspree (feedback utilisateur)
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Désactiver le bouton pendant l'envoi
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
+        
+        // Récupérer les données du formulaire
+        const formData = new FormData(contactForm);
+        
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Succès
+            formMessage.textContent = '✅ Message envoyé avec succès ! Je vous répondrai rapidement.';
+            formMessage.className = 'form-message success';
+            contactForm.reset();
+            
+            // Effacer le message après 5 secondes
+            setTimeout(() => {
+              formMessage.className = 'form-message';
+            }, 5000);
+          } else {
+            // Erreur
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Erreur lors de l\'envoi');
+          }
+        } catch (error) {
+          // Afficher l'erreur
+          formMessage.textContent = '❌ Erreur: ' + error.message + '. Veuillez réessayer ou me contacter directement par email.';
+          formMessage.className = 'form-message error';
+          
+          setTimeout(() => {
+            formMessage.className = 'form-message';
+          }, 6000);
+        } finally {
+          // Réactiver le bouton
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Envoyer le message ✉️';
+        }
+      });
+    }
+  </script>
 </body>
 </html>
